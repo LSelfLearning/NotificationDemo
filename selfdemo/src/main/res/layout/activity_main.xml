@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lewish.start.selfdemo.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:text="Notification" />
+
+    <Button
+        android:id="@+id/mBtnShowNotify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示提示"/>
+    <Button
+        android:id="@+id/mBtnShowCustomeNotify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示自定义提示"/>
+    <Button
+        android:id="@+id/mBtnClearNotify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除提示"/>
+</LinearLayout>

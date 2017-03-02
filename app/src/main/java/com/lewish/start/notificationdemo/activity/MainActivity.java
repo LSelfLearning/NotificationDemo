@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				.setContentText("测试内容")
 				.setContentIntent(getDefalutIntent(Notification.FLAG_AUTO_CANCEL))
 //				.setNumber(number)//显示数量
+				.setAutoCancel(true)
 				.setTicker("测试通知来啦")//通知首次出现在通知栏，带上升动画效果的
 				.setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
 				.setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
@@ -89,7 +90,19 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		mNotificationManager.notify(notifyId, mBuilder.build());
 //		mNotification.notify(getResources().getString(R.string.app_name), notiId, mBuilder.build());
 	}
-
+	private void showNotifyy(){
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+		Notification notification = mBuilder.setContentTitle("我是标题")
+				.setContentText("我是内容")
+				.setContentIntent(getDefalutIntent(Notification.FLAG_AUTO_CANCEL))
+				.setWhen(System.currentTimeMillis())
+				.setPriority(Notification.PRIORITY_DEFAULT)
+				.setOngoing(false)
+				.setDefaults(Notification.DEFAULT_VIBRATE)
+				.setSmallIcon(R.drawable.ic_launcher)
+				.build();
+		mNotificationManager.notify(notifyId,notification);
+	}
 	/** 显示大视图风格通知栏 */
 	public void showBigStyleNotify() {
 		NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
@@ -196,23 +209,23 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			case R.id.btn_show_cz:
 				showCzNotify();
 				break;
-			case R.id.btn_clear:
-				clearNotify(notifyId);
-				break;
-			case R.id.btn_clear_all:
-				clearAllNotify();
-				break;
 			case R.id.btn_show_intent_act:
 				showIntentActivityNotify();
 				break;
 			case R.id.btn_show_intent_apk:
 				showIntentApkNotify();
 				break;
-			case R.id.btn_show_progress:
-				startActivity(new Intent(getApplicationContext(), ProgressAcitivty.class));
+			case R.id.btn_clear:
+				clearNotify(notifyId);
+				break;
+			case R.id.btn_clear_all:
+				clearAllNotify();
 				break;
 			case R.id.btn_show_custom:
 				startActivity(new Intent(getApplicationContext(),CustomActivity.class ));
+				break;
+			case R.id.btn_show_progress:
+				startActivity(new Intent(getApplicationContext(), ProgressAcitivty.class));
 				break;
 			default:
 				break;

@@ -70,6 +70,7 @@ public class CustomActivity extends BaseActivity implements OnClickListener{
 		//设置number
 //		NumberFormat num = NumberFormat.getIntegerInstance();
 //		view_custom.setTextViewText(R.id.tv_custom_num, num.format(this.number));
+
 		mBuilder = new Builder(this);
 		mBuilder.setContent(view_custom)
 				.setContentIntent(getDefalutIntent(Notification.FLAG_AUTO_CANCEL))
@@ -78,13 +79,7 @@ public class CustomActivity extends BaseActivity implements OnClickListener{
 				.setPriority(Notification.PRIORITY_DEFAULT)// 设置该通知优先级
 				.setOngoing(false)//不是正在进行的   true为正在进行  效果和.flag一样
 				.setSmallIcon(R.drawable.icon);
-//		mNotificationManager.notify(notifyId, mBuilder.build());
 		Notification notify = mBuilder.build();
-		notify.contentView = view_custom;
-//		Notification notify = new Notification();
-//		notify.icon = R.drawable.icon;
-//		notify.contentView = view_custom;
-//		notify.contentIntent = getDefalutIntent(Notification.FLAG_AUTO_CANCEL);
 		mNotificationManager.notify(notifyId, notify);
 	}
 
@@ -137,8 +132,6 @@ public class CustomActivity extends BaseActivity implements OnClickListener{
 		Notification notify = mBuilder.build();
 		notify.flags = Notification.FLAG_ONGOING_EVENT;
 		//会报错，还在找解决思路
-//		notify.contentView = mRemoteViews;
-//		notify.contentIntent = PendingIntent.getActivity(this, 0, new Intent(), 0);
 		mNotificationManager.notify(200, notify);
 	}
 
